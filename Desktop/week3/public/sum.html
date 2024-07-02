@@ -1,37 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        function sendRequest() {
-            const number = document.getElementById('number').value;
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', `http://localhost:3000/getData?number=${number}`, true);
+      function sendRequest() {
+        const number = document.getElementById("number").value;
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", `http://localhost:3000/getData?number=${number}`, true);
 
-            xhr.onreadystatechange = function() {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    // 如果成功，直接跳轉到該頁面
-                    window.location.href = `http://localhost:3000/getData?number=${number}`;
-                } else {
-                    console.error('Error:', xhr.status);
-                }
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+              // 如果成功，直接跳轉到該頁面
+              window.location.href = `http://localhost:3000/getData?number=${number}`;
+            } else {
+              console.error("Error:", xhr.status);
             }
+          }
         };
-            xhr.send();
-            console.log(有跑到這嗎);
-        }
+        xhr.send();
+        console.log(有跑到這嗎);
+      }
     </script>
     <h5>輸入你的幸運數字，你會獲得一筆財富</h5>
-        你的幸運數字: <input type="text" id="number">
-        <button onclick="sendRequest()">提交</button>
-
-        
-</body>
+    你的幸運數字: <input type="text" id="number" />
+    <button onclick="sendRequest()">提交</button>
+  </body>
 </html>
 
 <!-- <script>
@@ -42,4 +40,3 @@
             jsAjax.send(); //傳送資料，沒有要送可以 null 不輸入
             console.log(jsAjax.readyState); 
         </script> -->
-        
